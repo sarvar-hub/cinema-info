@@ -36,10 +36,7 @@ const MovieScreen = () => {
       style={MovieScreenStyles.container}
     >
       <View style={MovieScreenStyles.wrapper}>
-        <SafeAreaView
-          pointerEvents="box-none"
-          style={MovieScreenStyles.safeArea}
-        >
+        <SafeAreaView style={MovieScreenStyles.safeArea}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={MovieScreenStyles.back}

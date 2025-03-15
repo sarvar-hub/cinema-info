@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { theme } from "theme";
+
+let { width, height } = Dimensions.get("window");
 
 export const MovieListStyles = StyleSheet.create({
   container: {
@@ -15,6 +17,11 @@ export const MovieListStyles = StyleSheet.create({
   title: {
     color: "white",
     fontSize: 20,
+  },
+  image: {
+    borderRadius: 24,
+    width: width * 0.33,
+    height: height * 0.22,
   },
   seeAll: {
     color: theme.text,

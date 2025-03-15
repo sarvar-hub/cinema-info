@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import {
-  Dimensions,
   Image,
   ScrollView,
   Text,
@@ -16,8 +15,6 @@ interface IMovieListProps {
   data: number[];
   hideSeeAll?: boolean;
 }
-
-var { width, height } = Dimensions.get("window");
 
 export default function MovieList({
   title,
@@ -51,11 +48,7 @@ export default function MovieList({
             <View style={MovieListStyles.movieCard}>
               <Image
                 source={require("../../assets/images/ant-man.jpg")}
-                style={{
-                  borderRadius: 24,
-                  width: width * 0.33,
-                  height: height * 0.22,
-                }}
+                style={MovieListStyles.image}
               />
               <Text style={MovieListStyles.movieName}>
                 {movieName.length > 14
