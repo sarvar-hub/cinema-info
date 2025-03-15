@@ -1,5 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { Cast } from "components";
+import { Cast, MovieList } from "components";
 import { LinearGradient } from "expo-linear-gradient";
 import { useEffect, useState } from "react";
 import {
@@ -21,6 +21,8 @@ const MovieScreen = () => {
   const navigation = useNavigation<NavigationProps>();
   const [isFavourite, setIsFavourite] = useState(false);
   const [cast, setCast] = useState([1, 2, 3, 4, 5]);
+  const [similarMovies, setSimilarMovies] = useState([1, 2, 3, 4, 5]);
+
   const movieName = "Ant-Man and the Wasp: Quantumania";
 
   useEffect(() => {
@@ -29,6 +31,7 @@ const MovieScreen = () => {
 
   return (
     <ScrollView
+      showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 20 }}
       style={MovieScreenStyles.container}
     >
@@ -85,6 +88,13 @@ const MovieScreen = () => {
 
       {/* Cast */}
       <Cast cast={cast} />
+
+      {/* Similar Movies */}
+      <MovieList
+        title="Similar Movies"
+        hideSeeAll={true}
+        data={similarMovies}
+      />
     </ScrollView>
   );
 };

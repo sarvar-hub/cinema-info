@@ -14,11 +14,16 @@ import { MovieListStyles } from "./style";
 interface IMovieListProps {
   title: string;
   data: number[];
+  hideSeeAll?: boolean;
 }
 
 var { width, height } = Dimensions.get("window");
 
-export default function MovieList({ title, data }: IMovieListProps) {
+export default function MovieList({
+  title,
+  data,
+  hideSeeAll = false,
+}: IMovieListProps) {
   const movieName = "Ant-Man and the Wasp: Quantumania";
   const navigation = useNavigation<NavigationProps>();
 
@@ -26,9 +31,11 @@ export default function MovieList({ title, data }: IMovieListProps) {
     <View style={MovieListStyles.container}>
       <View style={MovieListStyles.wrapper}>
         <Text style={MovieListStyles.title}>{title}</Text>
-        <TouchableOpacity>
-          <Text style={MovieListStyles.seeAll}>See All</Text>
-        </TouchableOpacity>
+        {!hideSeeAll && (
+          <TouchableOpacity>
+            <Text style={MovieListStyles.seeAll}>See All</Text>
+          </TouchableOpacity>
+        )}
       </View>
       {/* movie row */}
       <ScrollView
@@ -39,7 +46,7 @@ export default function MovieList({ title, data }: IMovieListProps) {
         {data.map((item, index) => (
           <TouchableWithoutFeedback
             key={index}
-            onPress={() => navigation.navigate("Movie", { item })}
+            onPress={() => navigation.push("Movie", { item })}
           >
             <View style={MovieListStyles.movieCard}>
               <Image

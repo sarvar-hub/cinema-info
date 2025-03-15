@@ -23,4 +23,18 @@ export const CastStyles = StyleSheet.create({
     fontSize: 12,
     marginTop: 4,
   },
+  imageWrapper: {
+    overflow: "hidden",
+    borderRadius: "100%",
+    borderWidth: 1,
+    height: 80,
+    width: 80,
+    alignItems: "center",
+    borderColor: "#909090",
+  },
+  image: {
+    borderRadius: 16,
+    height: 96,
+    width: 80,
+  },
 });
