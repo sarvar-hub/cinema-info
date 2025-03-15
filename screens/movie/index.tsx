@@ -1,4 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { Cast } from "components";
 import { LinearGradient } from "expo-linear-gradient";
 import { useEffect, useState } from "react";
 import {
@@ -13,12 +14,13 @@ import { ChevronLeftIcon } from "react-native-heroicons/outline";
 import { HeartIcon } from "react-native-heroicons/solid";
 import { theme } from "theme";
 import { NavigationProps } from "types/navigation";
-import MovieScreenStyles from "./styles";
+import MovieScreenStyles from "./style";
 
 const MovieScreen = () => {
   const { params: item } = useRoute();
   const navigation = useNavigation<NavigationProps>();
   const [isFavourite, setIsFavourite] = useState(false);
+  const [cast, setCast] = useState([1, 2, 3, 4, 5]);
   const movieName = "Ant-Man and the Wasp: Quantumania";
 
   useEffect(() => {
@@ -80,6 +82,9 @@ const MovieScreen = () => {
           who is the mysterious Kang?
         </Text>
       </View>
+
+      {/* Cast */}
+      <Cast cast={cast} />
     </ScrollView>
   );
 };

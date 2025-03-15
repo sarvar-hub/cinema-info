@@ -1,11 +1,10 @@
-import { Dimensions, Image, TouchableWithoutFeedback } from "react-native";
+import { Image, TouchableWithoutFeedback } from "react-native";
+import { MovieCardStyles } from "./style";
 
 interface IMovieCardProps<T> {
   item: T;
   handleClick: (item: T) => void;
 }
-
-var { width, height } = Dimensions.get("window");
 
 export default function MovieCard<T>({
   item,
@@ -15,11 +14,7 @@ export default function MovieCard<T>({
     <TouchableWithoutFeedback onPress={() => handleClick(item)}>
       <Image
         source={require("../../assets/images/capitan-marvel.webp")}
-        style={{
-          width: width * 0.6,
-          height: height * 0.4,
-          borderRadius: 24,
-        }}
+        style={MovieCardStyles.image}
       />
     </TouchableWithoutFeedback>
   );

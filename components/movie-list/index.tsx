@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { NavigationProps } from "types/navigation";
-import { MovieListStyles } from "./styles";
+import { MovieListStyles } from "./style";
 
 interface IMovieListProps {
   title: string;

@@ -1,5 +1,4 @@
-import MovieList from "components/movie-list";
-import TrendingMovies from "components/trending-movies";
+import { MovieList, TrendingMovies } from "components";
 import { useState } from "react";
 import {
   SafeAreaView,
